@@ -1,0 +1,22 @@
+Escape 1:
+
+Bad Cat:
+Knock Plant over in room 1, get fertilizer
+Get Newspaper
+Put newspaper in fireplace
+Knock Lamp over to start fire
+Get bottle from recycling/trash in room 3
+combine bottle and fertilizer
+Light on fire
+place in cat bed
+blow up window
+
+Lazy Cat:
+move kitchen item to high up place
+Sleep to have owners come home and take out stool
+move kitchen stool to room 1
+climb up jackets to knock down key
+get key from trash
+move stool to door
+leave door
+

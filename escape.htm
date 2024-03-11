@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang ="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="An Escape Room Website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Room</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="javascript.js"></script>
+</head>
+<body>
+
+<div id="topBox">
+  <div id="textBox">
+    <p id="text">You are a Cat. You see a bird outside. You feel the inclination to get the bird. Escape the house to get the bird.<br><br>
+    Instructions: Use your mouse to click on objects within the image. Click and drag items to places to use or combine them.<br></p>
+    <button type="button" id="startbutton" onclick="begin()">Begin!</button>
+    <div id="bombtimer"></div>
+  </div>
+  <div id="inventory" style="display: none;">
+    <p id="inventorytext">Inventory:</p>
+  </div>
+</div>
+
+  <div id="game" style="display: none;">
+  <div id="room1" >
+    <img id="room1img" src="images/room1morning.png" alt="entryway" usemap="#room1map">
+    <img id="movedstool" src="images/movedstool.png" alt="movedstool" style="display: none; position: fixed; left:994px; top:700px;" usemap="#stoolmap">
+    <img id="doorstool" src="images/doorstool.png" alt="doorstool" style="display: none; position: fixed; left:740px; top:677px;" usemap="#doorstoolmap">
+    <img id="keyracknokey" src="images/keyracknokey.png" alt="keyracknokey" style="display: none; position: fixed; left:895px; top:402px;" usemap="#keyrackmap">
+    <img id="opendoor" src="images/opendoor.png" alt="opendoor" style="display: none; position: fixed; left:575px; top:181px;" usemap="#doormap">
+    <map name="room1map" id="room1map">
+      <area shape="poly" coords="0,0,250,0,250,800,0,800" alt="room2" onclick="roomSelect(2)">
+      <area shape="poly" coords="1225,0,1440,0,1440,800,1225,800" alt="room3" onclick="roomSelect(3)">
+      <area shape="poly" coords="590,135,870,135,870,670,590,670" alt="door" onclick="exit()" ondrop="doordrop(event)" ondragover="allowDrop(event)">
+      <area shape="poly" coords="920,600,980,600,970,675,925,675" alt="trash" onclick="maintrash()">
+      <area shape="poly" coords="890,335,1005,335,1005,350,890,350" alt="keyholder" onclick="keyholder()">
+      <area shape="poly" coords="355,520,430,480,480,480,470,670,405,740,365,740" alt="sidetable" onclick="sidetable()">
+      <area shape="poly" coords="1040,260,1135,290,1135,310,1040,275" alt="coatrack" onclick="coatrack()">
+    </map>
+    <map name="stoolmap" id="stoolmap">
+      <area shape="poly" coords="14,20,67,19,116,57,119,104,48,104,8,54" alt="movedstool" onclick="movedstool()">
+    </map>
+    <map name="keyrack" id="keyrackmap">
+      <area shape="poly" coords="0,0,121,0,121,19,0,19" alt="keyracknokey" onclick="keyholder()">
+    </map>
+    <map name="doormap" id="doormap">
+      <area shape="poly" coords="10,20,300,20,300,558,20,558" alt="dooropen" onclick="exit()">
+    </map>
+  </div>
+
+  <div id="sidetable" style="display: none;">
+    <img src="images/sidetable.png" alt="sidetable" usemap="#sidetablemap" id="sidetableimg"><br>
+    <map name="sidetablemap" id="sidetablemap">
+      <area shape="poly" coords="580,450,725,360,880,450,810,645,645,645" alt="hallwayplant" onclick="knockplant()">
+      <area shape="poly" coords="645,260,665,165,840,165,860,260" alt="newspaper" onclick="collectnewspaper()">
+    </map>
+    <button type="button" class="sidetableback" onclick="sidetableback()">Back</button>
+  </div>
+
+  <div id="coatrack" style="display: none;">
+    <img src="images/coatrack.png" alt="coatrack" usemap="#coatrackmap" id="coatrackimg"><br>
+    <map name="coatrackmap" id="coatrackmap">
+      <area shape="poly" coords="150,325,220,325,220,510,185,540,150,415" alt="key" onclick="collectkey()">
+    </map>
+    <button type="button" class="coatrackback" onclick="coatrackback()">Back</button>
+  </div>
+
+  <div id="room2" style="display: none;">
+    <img id="room2img" src="images/room2morning.png" alt="livingroom" usemap="#room2map">
+    <map name="room2map" id="room2map">
+      <area shape="poly" coords="1310,0,1440,0,1440,800,1310,800" alt="room1" onclick="roomSelect(1)">
+      <area shape="poly" coords="1220,195,1265,290,1215,365,1175,280" alt="clock" onclick="clock()">
+      <area shape="poly" coords="795,440,815,365,925,365,950,440" alt="catbed" onclick="catbed()" ondrop="beddrop(event)" ondragover="allowDrop(event)">
+      <area shape="poly" coords="840,640,855,640,865,670,850,670" alt="remote" onclick="remote()">
+      <area shape="poly" coords="150,585,255,505,255,690,150,800" alt="fireplace" onclick="fireplace()" ondrop="fireplacedrop(event)" ondragover="allowDrop(event)">
+      <area shape="poly" coords="335,460,395,460,395,560,330,560" alt="lamp" onclick="lamp()">
+    </map>
+  </div>
+
+  <div id="room3" style="display: none;">
+    <img id="room3img" src="images/room3morningnostool.png" alt="room3" usemap="#room3map">
+    <img id="filledsink" src="images/filledsink.png" alt="sink" style="display: none; position: fixed; left:664px; top:418px;" usemap="#sinkmap">
+    <img id="cuttingboardonfridge" src="images/cuttingboardonfridge.png" alt="cuttingboardonfridge" style="display: none; position: fixed; left:1246px; top:301px;" usemap="#cuttingboardmap">
+    <map name="room3map" id="room3map">
+      <area shape="poly" coords="100,0,100,800,0,800,0,0" alt="room1" onclick="roomSelect(1)">
+      <area shape="poly" coords="200,540,250,490,270,510,270,620,225,665,200,660" alt="trash" onclick="trash()">
+      <area shape="poly" coords="666,425,780,360,900,425" alt="sink" onclick="sink()">
+      <area shape="poly" coords="585,620,875,620,875,730,585,730" alt="heavystool" onclick="heavystool()">
+      <area shape="poly" coords="1250,245,1440,245,1440,800,1245,660" alt="fridge" onclick="fridge()" ondrop="fridgedrop(event)" ondragover="allowDrop(event)">
+    </map>
+    <map name="sinkmap" id="sinkmap">
+      <area shape="poly" coords="100,65,220,65,220,80,100,80" alt="cuttingboard" onclick="collectcuttingboard()">
+    </map>
+    <map name="cuttingboardmap" id="cuttingboardmap">
+      <area shape="poly" coords="0,0,160,0,160,94,0,94" alt="cuttingboardonfridge" onclick="fridge()">
+    </map>
+  </div>
+
+</div>
+</body>
+</html>

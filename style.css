@@ -1,0 +1,50 @@
+/* Style sheet for escape.htm */
+#topBox{
+    display: flex;
+}
+#textBox{
+    display:flex;
+    width:50%;
+    height:80px;
+    border:2px solid black;
+    margin: 2px;
+    padding:2px;
+}
+#text{
+    width:90%;
+}
+#startbutton{
+    width:10%;
+    height:50%;
+    margin:20px;
+}
+#bombtimer{
+    display: none; 
+    border:2px solid black;
+    width:10%;
+    font-size: 50px;
+    color:red;
+    justify-content: center;
+    align-items: center;
+}
+#inventory{
+    width:50%;
+    height:50px;
+    border:2px solid black;
+    margin: 2px;
+    padding: 2px;
+    display: flex;
+}
+map{
+    cursor:pointer;
+}
+#newspaperdiv{
+    position:absolute;
+    left: 150px;
+    top: 650px;
+    border: 2px solid black;
+    width: 100px; 
+    height: 100px;
+    z-index: 2;
+}
+
