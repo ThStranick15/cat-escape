@@ -544,7 +544,7 @@ function allowDrop(ev) {
     if(draggedItem == "newspaper"){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        // ev.target.appendChild(document.getElementById(data));
         if(morning){
             document.getElementById("room2img").src = "images/room2morningnewspaper.png";
         }
@@ -592,7 +592,7 @@ function allowDrop(ev) {
     if(draggedItem == "cuttingboard"){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        // ev.target.appendChild(document.getElementById(data));
         document.getElementById("cuttingboardonfridge").style.display = "block";
         document.getElementById("text").innerHTML = "You put the cutting board on the fridge";
         cuttingboardfridge = true;
@@ -607,7 +607,7 @@ function allowDrop(ev) {
     if(draggedItem == "bomb"){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        // ev.target.appendChild(document.getElementById(data));
         document.getElementById("room2img").src = "images/room2bombbed.png"
         document.getElementById("text").innerHTML = "You put the bomb on your bed. Quick leave the room!";
         bedbomb = true;
@@ -621,7 +621,7 @@ function allowDrop(ev) {
     if(draggedItem == "key" && stooldoor){
         ev.preventDefault();
         var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+        // ev.target.appendChild(document.getElementById(data));
         document.getElementById("opendoor").style.display = "block";
         document.getElementById("text").innerHTML = "You unlocked the door.";
         dooropen = true;
